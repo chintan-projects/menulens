@@ -1,0 +1,204 @@
+dishes:
+  # Appetizers
+  - canonical_name: "Samosa"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Vegetable Samosa", "Veg Samosa", "Samosas", "Aloo Samosa", "Potato Samosa"]
+  - canonical_name: "Pakora"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Pakoda", "Onion Pakora", "Vegetable Pakora", "Onion Bhaji", "Bhaji"]
+  - canonical_name: "Chicken Tikka"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Tikka Chicken", "Chkn Tikka"]
+  - canonical_name: "Seekh Kebab"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Seekh Kabab", "Lamb Seekh Kebab", "Chicken Seekh Kebab"]
+  - canonical_name: "Aloo Tikki"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Potato Tikki", "Tikki"]
+  - canonical_name: "Chaat"
+    cuisine: "indian"
+    category: "appetizer"
+    aliases: ["Papdi Chaat", "Aloo Chaat", "Samosa Chaat", "Dahi Chaat"]
+
+  # Curries - Chicken
+  - canonical_name: "Chicken Tikka Masala"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Tikka Masala Chicken", "CTM", "Chicken Tikka", "Chkn Tikka Masala"]
+  - canonical_name: "Butter Chicken"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Murgh Makhani", "Chicken Makhani", "Makhani Chicken"]
+  - canonical_name: "Chicken Korma"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Korma Chicken", "Murgh Korma"]
+  - canonical_name: "Chicken Vindaloo"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Vindaloo Chicken", "Murgh Vindaloo"]
+  - canonical_name: "Chicken Madras"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Madras Chicken"]
+  - canonical_name: "Chicken Saag"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Saag Chicken", "Chicken Palak", "Murgh Saag"]
+  - canonical_name: "Chicken Curry"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Murgh Curry", "Basic Chicken Curry"]
+  - canonical_name: "Chicken Biryani"
+    cuisine: "indian"
+    category: "main_course/rice"
+    aliases: ["Murgh Biryani", "Dum Biryani Chicken"]
+
+  # Curries - Lamb/Goat
+  - canonical_name: "Lamb Rogan Josh"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Rogan Josh", "Gosht Rogan Josh", "Mutton Rogan Josh"]
+  - canonical_name: "Lamb Vindaloo"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Vindaloo Lamb", "Gosht Vindaloo"]
+  - canonical_name: "Goat Curry"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Mutton Curry", "Lamb Curry", "Gosht Curry"]
+  - canonical_name: "Lamb Biryani"
+    cuisine: "indian"
+    category: "main_course/rice"
+    aliases: ["Gosht Biryani", "Mutton Biryani"]
+  - canonical_name: "Keema"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Keema Matar", "Lamb Keema", "Minced Lamb Curry"]
+
+  # Curries - Vegetarian
+  - canonical_name: "Palak Paneer"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Saag Paneer", "Spinach Paneer", "Paneer Palak"]
+  - canonical_name: "Paneer Butter Masala"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Butter Paneer", "Paneer Makhani", "Shahi Paneer"]
+  - canonical_name: "Paneer Tikka Masala"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Tikka Masala Paneer"]
+  - canonical_name: "Chana Masala"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Chole", "Chickpea Curry", "Chana", "Chole Masala"]
+  - canonical_name: "Dal Tadka"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Yellow Dal", "Tadka Dal", "Dal Fry"]
+  - canonical_name: "Dal Makhani"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Black Dal", "Makhani Dal", "Kali Dal"]
+  - canonical_name: "Aloo Gobi"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Gobi Aloo", "Potato Cauliflower", "Cauliflower Potato"]
+  - canonical_name: "Baingan Bharta"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Eggplant Bharta", "Roasted Eggplant", "Baingan ka Bharta"]
+  - canonical_name: "Malai Kofta"
+    cuisine: "indian"
+    category: "main_course/curry"
+    aliases: ["Kofta Curry", "Veg Kofta"]
+  - canonical_name: "Vegetable Biryani"
+    cuisine: "indian"
+    category: "main_course/rice"
+    aliases: ["Veg Biryani", "Sabzi Biryani"]
+
+  # Breads
+  - canonical_name: "Naan"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Plain Naan", "Tandoori Naan"]
+  - canonical_name: "Garlic Naan"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Garlic Nan"]
+  - canonical_name: "Butter Naan"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Butter Nan"]
+  - canonical_name: "Cheese Naan"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Paneer Naan", "Stuffed Cheese Naan"]
+  - canonical_name: "Roti"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Chapati", "Chapatti", "Tandoori Roti"]
+  - canonical_name: "Paratha"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Parantha", "Aloo Paratha", "Plain Paratha"]
+  - canonical_name: "Puri"
+    cuisine: "indian"
+    category: "bread"
+    aliases: ["Poori", "Puri Bread"]
+
+  # Rice
+  - canonical_name: "Basmati Rice"
+    cuisine: "indian"
+    category: "rice"
+    aliases: ["Plain Rice", "Steamed Rice", "White Rice"]
+  - canonical_name: "Jeera Rice"
+    cuisine: "indian"
+    category: "rice"
+    aliases: ["Cumin Rice"]
+  - canonical_name: "Pulao"
+    cuisine: "indian"
+    category: "rice"
+    aliases: ["Pilaf", "Pilau", "Vegetable Pulao", "Peas Pulao"]
+
+  # Tandoori / Grilled
+  - canonical_name: "Tandoori Chicken"
+    cuisine: "indian"
+    category: "tandoori"
+    aliases: ["Tandoori Murgh", "Chicken Tandoori", "Half Tandoori Chicken"]
+  - canonical_name: "Lamb Chops"
+    cuisine: "indian"
+    category: "tandoori"
+    aliases: ["Tandoori Lamb Chops", "Lamb Chop"]
+  - canonical_name: "Chicken Malai Kebab"
+    cuisine: "indian"
+    category: "tandoori"
+    aliases: ["Malai Chicken", "Cream Chicken Kebab"]
+  - canonical_name: "Paneer Tikka"
+    cuisine: "indian"
+    category: "tandoori"
+    aliases: ["Tandoori Paneer", "Grilled Paneer"]
+
+  # Desserts
+  - canonical_name: "Gulab Jamun"
+    cuisine: "indian"
+    category: "dessert"
+    aliases: ["Gulab Jamoon", "Gulab Jaman"]
+  - canonical_name: "Rasmalai"
+    cuisine: "indian"
+    category: "dessert"
+    aliases: ["Ras Malai", "Rasomalai"]
+  - canonical_name: "Kheer"
+    cuisine: "indian"
+    category: "dessert"
+    aliases: ["Rice Pudding", "Rice Kheer"]
+  - canonical_name: "Mango Lassi"
+    cuisine: "indian"
+    category: "beverage"
+    aliases: ["Lassi Mango", "Mango Yogurt Drink"]
