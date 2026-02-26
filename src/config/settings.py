@@ -21,8 +21,8 @@ class Settings(BaseSettings):
     # Google Maps
     google_maps_api_key: str = ""
 
-    # LLM - Primary (ollama local)
-    ollama_base_url: str = "http://localhost:11434"
+    # LLM - Primary (llama-server with OpenAI-compatible API)
+    llm_base_url: str = "http://localhost:8081"
     extraction_model_primary: str = "lfm2-8b-a1b"
 
     # LLM - Fallback (Claude API)

@@ -1,7 +1,7 @@
 """Model client abstraction for LLM-based extraction.
 
 Supports multiple backends:
-- Local models via ollama (OpenAI-compatible API)
+- Local models via llama-server (OpenAI-compatible API on port 8081)
 - Claude API (Anthropic) as fallback
 """
 
@@ -23,7 +23,7 @@ T = TypeVar("T", bound=BaseModel)
 class ExtractionModelClient:
     """Unified client for calling extraction models.
 
-    Wraps both OpenAI-compatible (ollama/vLLM) and Anthropic backends
+    Wraps both OpenAI-compatible (llama-server/vLLM/ollama) and Anthropic backends
     with instructor for Pydantic schema enforcement.
     """
 
@@ -36,12 +36,14 @@ class ExtractionModelClient:
         self._settings = settings
         self._primary_model = settings.extraction_model_primary
 
-        # Primary: OpenAI-compatible client pointing at ollama
+        # Primary: OpenAI-compatible client pointing at llama-server
+        # Use JSON mode (not tool-calling) — llama-server with local models generates
+        # JSON directly rather than using OpenAI function-calling format.
         openai_client = AsyncOpenAI(
-            base_url=f"{settings.ollama_base_url}/v1",
-            api_key="ollama",  # ollama doesn't require a real key
+            base_url=f"{settings.llm_base_url}/v1",
+            api_key="not-needed",  # llama-server doesn't require an API key
         )
-        self._primary_client = instructor.from_openai(openai_client)
+        self._primary_client = instructor.from_openai(openai_client, mode=instructor.Mode.JSON)
 
         # Fallback: Anthropic client
         if settings.anthropic_api_key:

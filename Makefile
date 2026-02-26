@@ -1,4 +1,4 @@
-.PHONY: dev test lint typecheck format db-up db-down db-init install
+.PHONY: dev test lint typecheck format db-up db-down db-init install model-server
 
 install:
 	pip install -e ".[dev]"
@@ -31,6 +31,9 @@ db-down:
 
 db-init:
 	python -m scripts.init_db
+
+model-server:
+	./scripts/start_model_server.sh
 
 pipeline:
 	python -m scripts.run_pipeline
