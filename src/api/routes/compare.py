@@ -1,6 +1,7 @@
 """Dish price comparison endpoints."""
 
 import uuid
+from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Query
 
@@ -13,10 +14,12 @@ router = APIRouter(prefix="/api/compare", tags=["compare"])
 @router.get("")
 async def compare_prices(
     session: DbSession,
-    dish_id: uuid.UUID = Query(description="Canonical dish UUID"),
-    lat: float = Query(description="Latitude of center point"),
-    lng: float = Query(description="Longitude of center point"),
-    radius_miles: float = Query(default=5.0, ge=0.5, le=25.0, description="Search radius in miles"),
+    dish_id: Annotated[uuid.UUID, Query(description="Canonical dish UUID")],
+    lat: Annotated[float, Query(description="Latitude of center point")],
+    lng: Annotated[float, Query(description="Longitude of center point")],
+    radius_miles: Annotated[
+        float, Query(ge=0.5, le=25.0, description="Search radius in miles")
+    ] = 5.0,
 ) -> dict:
     """Compare prices for a dish across restaurants in an area.
 

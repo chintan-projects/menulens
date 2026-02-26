@@ -57,10 +57,7 @@ def clean_html(raw_html: str) -> str:
             continue
 
         classes = element.get("class", [])
-        if isinstance(classes, list):
-            class_str = " ".join(classes)
-        else:
-            class_str = str(classes)
+        class_str = " ".join(classes) if isinstance(classes, list) else str(classes)
 
         for pattern in REMOVE_CLASS_PATTERNS:
             if pattern.search(class_str):

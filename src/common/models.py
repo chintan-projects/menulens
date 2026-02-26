@@ -1,13 +1,13 @@
 """Shared Pydantic models used across services."""
 
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 from uuid import UUID
 
 from pydantic import BaseModel, Field
 
 
-class SourceType(str, Enum):
+class SourceType(StrEnum):
     """Type of menu source content."""
 
     HTML = "html"
@@ -16,7 +16,7 @@ class SourceType(str, Enum):
     DELIVERY_PLATFORM = "delivery_platform"
 
 
-class PriceTier(str, Enum):
+class PriceTier(StrEnum):
     """Restaurant price tier classification."""
 
     BUDGET = "budget"

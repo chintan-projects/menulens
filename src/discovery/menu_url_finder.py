@@ -85,9 +85,8 @@ async def find_menu_urls(website_url: str) -> list[str]:
         if href.lower().endswith(".pdf"):
             full_url = urljoin(website_url, href)
             link_text = link.get_text(strip=True).lower()
-            if "menu" in link_text or "menu" in href.lower():
-                if full_url not in menu_urls:
-                    menu_urls.append(full_url)
+            if ("menu" in link_text or "menu" in href.lower()) and full_url not in menu_urls:
+                menu_urls.append(full_url)
 
     # If no menu links found, the homepage itself might be the menu
     if not menu_urls:
