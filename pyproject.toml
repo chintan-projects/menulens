@@ -60,7 +60,9 @@ line-length = 100
 
 [tool.ruff]
 line-length = 100
-target-version = "py312"
+# Target Python 3.11 — project requires-python >=3.11 and dev environment uses 3.11.14.
+# Ruff uses this for syntax/upgrade rules (e.g. UP ruleset, union type hints).
+target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "N", "UP", "B", "SIM", "TCH"]
@@ -70,7 +72,8 @@ ignore = ["E501"]
 known-first-party = ["src"]
 
 [tool.mypy]
-python_version = "3.12"
+# Aligned with requires-python >=3.11 and ruff target-version.
+python_version = "3.11"
 strict = true
 plugins = ["pydantic.mypy"]
 

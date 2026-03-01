@@ -43,5 +43,4 @@ exec llama-server \
     --port "$PORT" \
     --ctx-size "$CTX_SIZE" \
     --n-gpu-layers "$GPU_LAYERS" \
-    --flash-attn on \
     "$@"

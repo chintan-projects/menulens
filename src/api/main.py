@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.api.routes import benchmark, compare, dishes, restaurants
+from src.api.routes import benchmark, compare, demo, dishes, extract, restaurants
 from src.common.logger import setup_logging
 
 
@@ -32,6 +32,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(demo.router)
+app.include_router(extract.router)
 app.include_router(compare.router)
 app.include_router(restaurants.router)
 app.include_router(dishes.router)

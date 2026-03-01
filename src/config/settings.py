@@ -22,8 +22,14 @@ class Settings(BaseSettings):
     google_maps_api_key: str = ""
 
     # LLM - Primary (llama-server with OpenAI-compatible API)
-    llm_base_url: str = "http://localhost:8081"
+    llm_host: str = "localhost"
+    llm_port: int = 8081
     extraction_model_primary: str = "lfm2-8b-a1b"
+
+    @property
+    def llm_base_url(self) -> str:
+        """Computed base URL from host and port."""
+        return f"http://{self.llm_host}:{self.llm_port}"
 
     # LLM - Fallback (Claude API)
     anthropic_api_key: str = ""

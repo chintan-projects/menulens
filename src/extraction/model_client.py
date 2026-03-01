@@ -1,7 +1,7 @@
 """Model client abstraction for LLM-based extraction.
 
 Supports multiple backends:
-- Local models via llama-server (OpenAI-compatible API on port 8081)
+- Local models via llama-server (OpenAI-compatible API, port configurable via LLM_PORT env var)
 - Claude API (Anthropic) as fallback
 """
 
@@ -18,6 +18,10 @@ from src.config.settings import Settings
 logger = get_logger(__name__)
 
 T = TypeVar("T", bound=BaseModel)
+
+
+class FallbackNotConfiguredError(Exception):
+    """Raised when fallback model is requested but no API key is configured."""
 
 
 class ExtractionModelClient:
@@ -86,10 +90,17 @@ class ExtractionModelClient:
                 "primary_model_failed",
                 model=self._primary_model,
                 error=str(e),
+                error_type=type(e).__name__,
+                base_url=self._settings.llm_base_url,
             )
             if self._fallback_client:
                 logger.info("falling_back_to_anthropic", model=self._fallback_model)
                 return await self._call_fallback(response_model, system_prompt, user_prompt)
+            logger.error(
+                "no_fallback_available",
+                primary_error=str(e),
+                hint="Set ANTHROPIC_API_KEY to enable fallback extraction",
+            )
             raise
 
     async def _call_primary(
@@ -137,7 +148,13 @@ class ExtractionModelClient:
             Extracted data as response_model instance.
         """
         if not self._fallback_client or not self._fallback_model:
-            raise RuntimeError("Fallback model not configured (missing ANTHROPIC_API_KEY)")
+            logger.error(
+                "fallback_not_configured",
+                hint="Set ANTHROPIC_API_KEY env var to enable Claude fallback",
+            )
+            raise FallbackNotConfiguredError(
+                "Fallback model not configured (missing ANTHROPIC_API_KEY)"
+            )
 
         result: T = await self._fallback_client.messages.create(
             model=self._fallback_model,

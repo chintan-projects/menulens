@@ -28,11 +28,12 @@ def setup_logging(*, json_output: bool = True, log_level: str = "INFO") -> None:
     else:
         processors.append(structlog.dev.ConsoleRenderer())
 
+    import logging  # noqa: PLC0415
+
+    level_num: int = logging.getLevelName(log_level.upper())
     structlog.configure(
         processors=processors,
-        wrapper_class=structlog.make_filtering_bound_logger(
-            structlog.get_level_from_name(log_level)
-        ),
+        wrapper_class=structlog.make_filtering_bound_logger(level_num),
         context_class=dict,
         logger_factory=structlog.PrintLoggerFactory(),
         cache_logger_on_first_use=True,
