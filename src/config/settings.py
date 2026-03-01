@@ -1,6 +1,13 @@
 """Application settings loaded from environment variables."""
 
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+def _default_models_dir() -> str:
+    """Resolve default MODELS_DIR to ~/Projects/_models."""
+    return str(Path.home() / "Projects" / "_models")
 
 
 class Settings(BaseSettings):
@@ -20,6 +27,10 @@ class Settings(BaseSettings):
 
     # Google Maps
     google_maps_api_key: str = ""
+
+    # Model registry — shared across all projects (see ~/Projects/_models/config.yaml).
+    # Override with MODELS_DIR env var to point at a different location.
+    models_dir: str = _default_models_dir()
 
     # LLM - Primary (llama-server with OpenAI-compatible API)
     llm_host: str = "localhost"

@@ -10,10 +10,10 @@
 
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-
-MODEL_PATH="${MODEL_PATH:-$PROJECT_DIR/models/LFM2-8B-A1B-Q4_K_M.gguf}"
+# Resolve model path via shared MODELS_DIR (see ~/Projects/_models/config.yaml).
+# Never store model binaries inside the project — use the workspace-level registry.
+MODELS_DIR="${MODELS_DIR:-$HOME/Projects/_models}"
+MODEL_PATH="${MODEL_PATH:-$MODELS_DIR/LFM2-8B-A1B-Q4_K_M.gguf}"
 PORT="${PORT:-8081}"
 HOST="${HOST:-127.0.0.1}"
 CTX_SIZE="${CTX_SIZE:-8192}"
@@ -22,8 +22,11 @@ GPU_LAYERS="${GPU_LAYERS:-auto}"
 if [ ! -f "$MODEL_PATH" ]; then
     echo "ERROR: Model file not found at $MODEL_PATH"
     echo ""
-    echo "Download it with:"
-    echo "  python -c \"from huggingface_hub import hf_hub_download; hf_hub_download('LiquidAI/LFM2-8B-A1B-GGUF', filename='LFM2-8B-A1B-Q4_K_M.gguf', local_dir='$PROJECT_DIR/models')\""
+    echo "Download it to the shared model registry:"
+    echo "  python -c \"from huggingface_hub import hf_hub_download; hf_hub_download('LiquidAI/LFM2-8B-A1B-GGUF', filename='LFM2-8B-A1B-Q4_K_M.gguf', local_dir='$MODELS_DIR')\""
+    echo ""
+    echo "Or set MODELS_DIR to point at your model directory:"
+    echo "  MODELS_DIR=/path/to/models ./scripts/start_model_server.sh"
     exit 1
 fi
 

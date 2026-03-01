@@ -12,6 +12,13 @@ venv/
 .env
 .env.local
 
+# Models — binaries live in ~/Projects/_models/ (shared registry).
+# Never store model files inside the project.
+models/
+*.gguf
+*.bin
+*.safetensors
+
 # Data (local storage, gitignored)
 data/raw/
 data/extracted/
